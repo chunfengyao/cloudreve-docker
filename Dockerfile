@@ -10,7 +10,7 @@ RUN apk update \
 
 RUN curl -L --max-redirs 10 -o ./cloudreve.tar.gz `curl -s "${ReleaseApi}" | sed -e 's/"/\n/g' | grep http | grep linux | grep ${Arch}`
 
-RUN tar xzf ./cloudreve.tzr.gz
+RUN tar xzf ./cloudreve.tar.gz
 
 FROM alpine:3.15.4
 
