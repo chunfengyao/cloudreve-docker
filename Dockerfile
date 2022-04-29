@@ -12,7 +12,8 @@ RUN curl -L --max-redirs 10 -o ./cloudreve.tar.gz `curl -s "${ReleaseApi}" | sed
 
 RUN tar xzf ./cloudreve.tar.gz
 
-FROM alpine:3.15.4
+#FROM alpine:3.15.4
+FROM lsiobase/alpine:3.13
 
 ENV PUID=1000
 ENV PGID=1000
