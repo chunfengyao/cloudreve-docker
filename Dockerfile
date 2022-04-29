@@ -1,25 +1,23 @@
-FROM alpine:3.15.4 as builder
+FROM ubuntu:22.04 as builder
 
 ARG ReleaseApi="https://api.github.com/repos/cloudreve/Cloudreve/releases/latest"
 ARG Arch="amd64"
 
 WORKDIR /ProjectCloudreve
 
-RUN apk update \
-    && apk add tar gzip curl sed grep
+RUN apt update \
+    && apt install -y tar gzip curl sed grep \
+    && apt clean
 
 RUN curl -L --max-redirs 10 -o ./cloudreve.tar.gz `curl -s "${ReleaseApi}" | sed -e 's/"/\n/g' | grep http | grep linux | grep ${Arch}`
 
 RUN tar xzf ./cloudreve.tar.gz
 
-#FROM alpine:3.15.4
-FROM lsiobase/alpine:3.13
+FROM ubuntu:22.04
 
 ENV PUID=1000
 ENV PGID=1000
 ENV TZ="Asia/Shanghai"
-
-#LABEL MAINTAINER="Xavier Niu"
 
 WORKDIR /cloudreve
 
@@ -27,14 +25,15 @@ COPY --from=builder /ProjectCloudreve/cloudreve /cloudreve/
 
 VOLUME ["/cloudreve/uploads", "/downloads", "/cloudreve/avatar", "/cloudreve/config", "/cloudreve/db"]
 
-RUN echo ">>>>>> update dependencies" \
-    && apk update \
-    && apk add tzdata
+RUN echo ">>>>>> update dependencies"
+RUN apt update \
+    && apt install -y tzdata \
+    && apt clean
 RUN echo ">>>>>> set up timezone" \
     && cp /usr/share/zoneinfo/${TZ} /etc/localtime \
     && echo ${TZ} > /etc/timezone
 RUN echo ">>>>>> fix cloudreve premission" \
-    && chmod +x /cloudreve/cloudreve
+    && chmod +rx /cloudreve/cloudreve
 
 EXPOSE 5212
 
