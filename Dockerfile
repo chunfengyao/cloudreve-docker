@@ -29,12 +29,12 @@ VOLUME ["/cloudreve/uploads", "/downloads", "/cloudreve/avatar", "/cloudreve/con
 
 RUN echo ">>>>>> update dependencies" \
     && apk update \
-    && apk add tzdata \
-    && echo ">>>>>> set up timezone" \
+    && apk add tzdata
+RUN echo ">>>>>> set up timezone" \
     && cp /usr/share/zoneinfo/${TZ} /etc/localtime \
-    && echo ${TZ} > /etc/timezone \
-    && echo ">>>>>> fix cloudreve-main premission" \
-    && chmod +x /cloudreve/cloudreve-main
+    && echo ${TZ} > /etc/timezone
+RUN echo ">>>>>> fix cloudreve premission" \
+    && chmod +x /cloudreve/cloudreve
 
 EXPOSE 5212
 
