@@ -12,10 +12,10 @@ RUN apt update \
 
 RUN uname -m
 
-RUN if [[ "`uname -m`" == "x86_64" ]]; then export Arch="amd64" \
-        elif [[ "`uname -m`" == "arm64" ]]; then export Arch="arm64" \
-        elif [[ "`uname -m`" == "arm" ]]; then export Arch="arm" \
-        else exit -1 \
+RUN if [[ "`uname -m`" == "x86_64" ]]; then export Arch="amd64"; \
+        elif [[ "`uname -m`" == "arm64" ]]; then export Arch="arm64"; \
+        elif [[ "`uname -m`" == "arm" ]]; then export Arch="arm"; \
+        else exit -1; \
     fi \
     && curl -L --max-redirs 10 -o ./cloudreve.tar.gz `curl -s "${ReleaseApi}" | sed -e 's/"/\n/g' | grep http | grep linux | grep "${Arch}.tar"`
 
