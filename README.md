@@ -1,6 +1,6 @@
 # Cloudreve Docker
 
-![](https://img.shields.io/github/workflow/status/xavier-niu/cloudreve-docker/Publish%20Docker) ![](https://img.shields.io/badge/cloudreve-3.5.1-brightgreen) ![](https://img.shields.io/docker/image-size/xavierniu/cloudreve/latest) ![](https://img.shields.io/docker/pulls/xavierniu/cloudreve) ![](https://img.shields.io/badge/maintainer-xavierniu-lightgrey)
+![](https://img.shields.io/github/workflow/status/xavier-niu/cloudreve-docker/Publish%20Docker) ![](https://img.shields.io/badge/cloudreve-3.5.1-brightgreen) ![](https://img.shields.io/docker/image-size/henryyao/cloudreve/latest) ![](https://img.shields.io/docker/pulls/henryyao/cloudreve) ![](https://img.shields.io/badge/maintainer-henryyao-lightgrey)
 
 优势
 
@@ -59,7 +59,7 @@ docker run -d \
   -v <PATH TO config>:/cloudreve/config \
   -v <PATH TO db>:/cloudreve/db \
   -v <PATH TO avatar>:/cloudreve/avatar \
-  xavierniu/cloudreve
+  henryyao/cloudreve
 ```
 
 说明
@@ -81,7 +81,11 @@ docker run -d \
 ```bash
 docker stop cloudreve \
   && docker rm cloudreve \
-  && docker pull xavierniu/cloudreve
+  && docker pull henryyao/cloudreve
 ```
+
+## 升级Cloudreve
+
+每次Cloudreve升级后我会收到邮件通知，理论上我会及时创建一个新的release触发编译（只要创建新的tag，就可以，不需要修改任何源代码）。如有兴趣，欢迎参加。
 
 重复上面的运行步骤再次启动容器即可。
