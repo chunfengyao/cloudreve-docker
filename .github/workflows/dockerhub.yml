@@ -1,4 +1,4 @@
-name: build cloudreve image
+name: Docker Build
 
 on:
   release:
