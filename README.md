@@ -84,8 +84,9 @@ docker stop cloudreve \
   && docker pull henryyao/cloudreve
 ```
 
+重复上面的运行步骤再次创建容器即可。
+
 ## 升级Cloudreve
 
 每次Cloudreve升级后我会收到邮件通知，理论上我会及时创建一个新的release触发编译（只要创建新的tag，就可以，不需要修改任何源代码）。如有兴趣，欢迎参加。
 
-重复上面的运行步骤再次启动容器即可。
