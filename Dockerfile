@@ -5,6 +5,8 @@ ARG Arch="amd64"
 
 WORKDIR /ProjectCloudreve
 
+RUN env
+
 RUN apt update \
     && apt install -y tar gzip curl sed grep \
     && apt clean
