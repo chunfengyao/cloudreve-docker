@@ -1,7 +1,6 @@
 FROM ubuntu:22.04 as builder
 
 ARG ReleaseApi="https://api.github.com/repos/cloudreve/Cloudreve/releases/latest"
-ARG Arch="amd64"
 
 WORKDIR /ProjectCloudreve
 
@@ -11,7 +10,13 @@ RUN apt update \
     && apt install -y tar gzip curl sed grep \
     && apt clean
 
-RUN curl -L --max-redirs 10 -o ./cloudreve.tar.gz `curl -s "${ReleaseApi}" | sed -e 's/"/\n/g' | grep http | grep linux | grep ${Arch}`
+RUN uname -m
+
+RUN [[ "`uname -m`" == "x86_64" ]] && export Arch="amd64" \
+    || [[ "`uname -m`" == "arm64" ]] && export Arch="arm64" \
+    || [[ "`uname -m`" == "arm" ]] && export Arch="arm" \
+    || exit -1 \
+    && curl -L --max-redirs 10 -o ./cloudreve.tar.gz `curl -s "${ReleaseApi}" | sed -e 's/"/\n/g' | grep http | grep linux | grep "${Arch}.tar"`
 
 RUN tar xzf ./cloudreve.tar.gz
 
