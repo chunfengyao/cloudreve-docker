@@ -1,8 +1,9 @@
 name: sync readme to dockerhub
 
 on:
-  release:
-    types: [published]
+  push:
+    branches:
+      - latest
 
 jobs:
   sync-readme:
