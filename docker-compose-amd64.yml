@@ -34,7 +34,7 @@ services:
         restart: unless-stopped
 
     cloudreve: 
-        image: xavierniu/cloudreve
+        image: henryyao/cloudreve
         environment: 
             - PUID=${CLOUDREVE_PUID}
             - PGID=${CLOUDREVE_PGID}
