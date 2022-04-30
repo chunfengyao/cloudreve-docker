@@ -22,6 +22,8 @@ RUN tar xzf ./cloudreve.tar.gz
 
 FROM ubuntu:22.04
 
+MAINTAINER chunfengyao
+
 ENV PUID=1000
 ENV PGID=1000
 ENV TZ="Asia/Shanghai"
