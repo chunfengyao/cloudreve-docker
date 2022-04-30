@@ -8,12 +8,10 @@ RUN apt update \
     && apt install -y tar gzip curl sed grep \
     && apt clean
 
-RUN set -x
-
 RUN uname -m
 
 RUN if [ "0$(uname -m)" = "0x86_64" ]; then export Arch="amd64" ;fi \
-    && if [ "0$(uname -m)" = "0arm64" ]; then export Arch="arm64" ;fi \
+    && if [ "0$(uname -m)" = "0arm64" || "0$(uname -m)" = "0aarch64" ]; then export Arch="arm64" ;fi \
     && if [ "0$(uname -m)" = "0arm" ]; then export Arch="arm" ;fi \
     && if [ "0$Arch" = "0" ]; then exit 5 ;fi \
     && curl -L --max-redirs 10 -o ./cloudreve.tar.gz `curl -s "${ReleaseApi}" | sed -e 's/"/\n/g' | grep http | grep linux | grep "${Arch}.tar"`
