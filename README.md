@@ -1,6 +1,6 @@
 # Cloudreve Docker
 
-![](https://img.shields.io/github/workflow/status/chunfengyao/cloudreve-docker/Publish%20Docker) ![](https://img.shields.io/docker/image-size/henryyao/cloudreve/latest) ![](https://img.shields.io/docker/pulls/henryyao/cloudreve) ![](https://img.shields.io/badge/maintainer-henryyao-lightgrey)
+![](https://img.shields.io/github/workflow/status/chunfengyao/cloudreve-docker/Docker%20Build?logo=GitHub&label=Docker%20Build) ![](https://img.shields.io/docker/image-size/henryyao/cloudreve/latest) ![](https://img.shields.io/docker/pulls/henryyao/cloudreve) ![](https://img.shields.io/badge/maintainer-henryyao-lightgrey)
 
 ### 项目地址：https://github.com/chunfengyao/cloudreve-docker
 
