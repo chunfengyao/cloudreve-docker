@@ -88,7 +88,7 @@ docker run -d \
   -v <PATH TO config>:/cloudreve/config \
   -v <PATH TO db>:/cloudreve/db \
   -v <PATH TO avatar>:/cloudreve/avatar \
-  xavierniu/cloudreve
+  henryyao/cloudreve
 ```
 
 说明
