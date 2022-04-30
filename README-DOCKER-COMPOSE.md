@@ -38,7 +38,7 @@ server {
 下载环境文件
 
 ```bash
-wget -qO- https://raw.githubusercontent.com/xavier-niu/cloudreve-docker/master/docker-compose-env-example > .env
+wget -qO- https://raw.githubusercontent.com/chunfengyao/cloudreve-docker/master/docker-compose-env-example > .env
 ```
 
 根据需要对环境变量进行修改
@@ -57,7 +57,7 @@ wget -qO- https://raw.githubusercontent.com/xavier-niu/cloudreve-docker/master/d
 下载Docker Compose文件
 
 ```bash
-wget -qO- https://raw.githubusercontent.com/xavier-niu/cloudreve-docker/master/docker-compose-amd64.yml > docker-compose.yml
+wget -qO- https://raw.githubusercontent.com/chunfengyao/cloudreve-docker/master/docker-compose-amd64.yml > docker-compose.yml
 ```
 
 ### 启动Docker Compose
