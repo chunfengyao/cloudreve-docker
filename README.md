@@ -2,6 +2,8 @@
 
 ![](https://img.shields.io/github/workflow/status/chunfengyao/cloudreve-docker/Publish%20Docker) ![](https://img.shields.io/docker/image-size/henryyao/cloudreve/latest) ![](https://img.shields.io/docker/pulls/henryyao/cloudreve) ![](https://img.shields.io/badge/maintainer-henryyao-lightgrey)
 
+### 项目地址：https://github.com/chunfengyao/cloudreve-docker
+
 优势
 
 - 基于最新的 [Cloudreve V3](https://github.com/cloudreve/Cloudreve)
