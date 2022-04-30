@@ -14,8 +14,8 @@ RUN if [ "0$(uname -m)" = "0x86_64" ]; then export Arch="amd64" ;fi \
     && if [ "0$(uname -m)" = "0arm64" ] || [ "0$(uname -m)" = "0aarch64" ]; then export Arch="arm64" ;fi \
     && if [ "0$(uname -m)" = "0arm" ] || [ "0$(uname -m)" = "0armv7l" ]; then export Arch="arm" ;fi \
     && if [ "0$Arch" = "0" ]; then exit 5 ;fi \
-    && targetUrl=$(curl -s "${ReleaseApi}" | sed -e 's/"/\n/g' | grep http | grep linux | grep "${Arch}.tar")
-    && echo ">>>>>> targetUrl: ${targetUrl}"
+    && targetUrl=$(curl -s "${ReleaseApi}" | sed -e 's/"/\n/g' | grep http | grep linux | grep "${Arch}.tar") \
+    && echo ">>>>>> targetUrl: ${targetUrl}" \
     && curl -L --max-redirs 10 -o ./cloudreve.tar.gz "${targetUrl}"
 
 RUN tar xzf ./cloudreve.tar.gz
