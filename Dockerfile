@@ -1,5 +1,8 @@
 FROM ubuntu:22.04 as builder
 
+ARG TARGETARCH
+ARG TARGETVARIANT
+
 ARG ReleaseApi="https://api.github.com/repos/cloudreve/Cloudreve/releases/latest"
 
 WORKDIR /ProjectCloudreve
@@ -9,6 +12,8 @@ RUN apt update \
     && apt clean
 
 RUN uname -m
+
+RUN echo "${TARGETARCH}<======>${TARGETVARIANT}"
 
 RUN if [ "0$(uname -m)" = "0x86_64" ]; then export Arch="amd64" ;fi \
     && if [ "0$(uname -m)" = "0arm64" ] || [ "0$(uname -m)" = "0aarch64" ]; then export Arch="arm64" ;fi \
