@@ -33,13 +33,17 @@ ENV TZ="Asia/Shanghai"
 
 WORKDIR /cloudreve
 
+RUN echo ">>>>>> Install dependencies" \
+    ; apk add gcompat tzdata ; apk cache clean || true
+
+RUN echo ">>>>>> set up timezone" \
+    ; cp /usr/share/zoneinfo/${TZ} /etc/localtime \
+    && echo ${TZ} > /etc/timezone
+    
 COPY --from=builder /ProjectCloudreve/cloudreve /cloudreve/
 
 VOLUME ["/cloudreve/uploads", "/downloads", "/cloudreve/avatar", "/cloudreve/config", "/cloudreve/db"]
 
-RUN echo ">>>>>> set up timezone" \
-    && apk add tzdata ; apk cache clean || true ; cp /usr/share/zoneinfo/${TZ} /etc/localtime \
-    && echo ${TZ} > /etc/timezone
 RUN echo ">>>>>> fix cloudreve premission" \
     && chmod +rx /cloudreve/cloudreve
 
