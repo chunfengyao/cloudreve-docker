@@ -8,7 +8,7 @@
 
 - 基于最新的 [Cloudreve V3](https://github.com/cloudreve/Cloudreve)
 - 长期维护
-- ~~镜像体积小~~(为了避免重复编译，这边直接使用`cloudreve`的二进制文件，配合`docker`的`ubuntu`镜像打包)（当然，如果有哪位小伙伴知道，通过`alpine`镜像，加上哪些必要依赖就足以运行`cloudreve`的话，也可以提供一下，我可以改成基于`alpine`，那最终镜像会小很多。）（目前直接基于`alpine`无法运行`cloudreve`，少依赖）
+- 镜像体积小~~(为了避免重复编译，这边直接使用`cloudreve`的二进制文件，配合`docker`的`ubuntu`镜像打包)（当然，如果有哪位小伙伴知道，通过`alpine`镜像，加上哪些必要依赖就足以运行`cloudreve`的话，也可以提供一下，我可以改成基于`alpine`，那最终镜像会小很多。）（目前直接基于`alpine`无法运行`cloudreve`，少依赖）~~(依赖问题已解决，镜像体积目前已大幅缩小，可能是最小的了)
 - 纯净安装，无多余组件
 - 支持多种架构（amd64, arm64, arm32/v7）
 - 简易安装
