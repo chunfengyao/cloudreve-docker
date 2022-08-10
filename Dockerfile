@@ -1,4 +1,4 @@
-FROM alpine:3.15.4 as builder
+FROM alpine:3.16.2 as builder
 
 ARG TARGETARCH
 ARG TARGETVARIANT
@@ -23,7 +23,7 @@ RUN if [ "0$(uname -m)" = "0x86_64" ]; then export Arch="amd64" ;fi \
 
 RUN tar xzf ./cloudreve.tar.gz
 
-FROM alpine:3.15.4
+FROM alpine:3.16.2
 
 MAINTAINER chunfengyao
 
